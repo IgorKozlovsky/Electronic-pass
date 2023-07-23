@@ -1,0 +1,52 @@
+{
+  "name": "electronic-pass",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "tsc": "tsc",
+    "lint": "eslint ./src",
+    "lint:format": "prettier --write --loglevel warn \"./**/*.{js,jsx,ts,tsx,css,md,json}\"",
+    "lint:fix": "eslint --cache ./src --ext .jsx,.js,.ts,.tsx --fix --ignore-path ./.gitignore",
+    "lint-tsc": "yarn tsc && yarn lint:format && yarn lint:fix"
+  },
+  "dependencies": {
+    "expo": "~48.0.18",
+    "expo-status-bar": "~1.4.4",
+    "native-base": "^3.4.28",
+    "react": "18.2.0",
+    "react-native": "0.71.8",
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-svg": "12.1.1",
+    "styled-components": "^6.0.5",
+    "swr": "^2.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@expo/webpack-config": "^18.0.1",
+    "@types/react": "~18.0.14",
+    "@types/styled-components": "^5.1.26",
+    "@types/styled-components-react-native": "^5.2.1",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "eslint": "^8.45.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^3.0.0",
+    "react-dom": "18.2.0",
+    "react-native-web": "~0.18.10",
+    "typescript": "^4.9.4"
+  },
+  "private": true,
+  "pre-commit": "lint-tsc"
+}
