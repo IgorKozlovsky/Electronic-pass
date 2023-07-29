@@ -5,8 +5,9 @@ const spaces: Spaces = {
   sm: '4px',
   md: '8px',
   lg: '16px',
-  xl: '32px',
-  xxl: '64px',
+  xl: '24px',
+  xxl: '32px',
+  xxxl: '64px',
 }
 
 export default spaces

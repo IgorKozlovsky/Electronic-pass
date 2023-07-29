@@ -20,4 +20,5 @@ export type Spaces = {
   lg: string
   xl: string
   xxl: string
+  xxxl: string
 }
