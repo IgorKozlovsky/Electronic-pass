@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { useFonts } from 'expo-font'
+import { Text } from 'native-base'
+// import { useEffect } from 'react'
+// import SplashScreen from 'react-native-splash-screen'
 
-export default function App() {
+import AppProviders from 'src/features/AppProviders'
+import Navigation from 'src/features/Navigation'
+import { AppWrapper } from 'src/styles'
+
+const App = (): JSX.Element => {
+  // useEffect(SplashScreen.hide, [])
+
+  const [fontsLoaded] = useFonts({
+    Urbanist: require('./assets/fonts/Urbanist-VariableFont_wght.ttf'),
+  })
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <AppProviders>
+      <AppWrapper>
+        {fontsLoaded ? <Navigation /> : <Text>Loading...</Text>}
+      </AppWrapper>
+    </AppProviders>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
+export default App
