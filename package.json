@@ -14,6 +14,7 @@
     "lint-tsc": "yarn tsc && yarn lint:format && yarn lint:fix"
   },
   "dependencies": {
+    "@expo/vector-icons": "^13.0.0",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
     "expo": "~48.0.18",

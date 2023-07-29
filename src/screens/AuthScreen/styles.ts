@@ -4,7 +4,13 @@ import { css, styled } from 'styled-components'
 export const TextFlex = styled(Flex)(
   ({ theme }) => css`
     flex-direction: column;
-    padding: 0 ${theme.spaces.xl};
+    gap: ${theme.spaces.lg};
+  `,
+)
+
+export const InputFlex = styled(Flex)(
+  ({ theme }) => css`
+    flex-direction: column;
     gap: ${theme.spaces.lg};
   `,
 )

@@ -19,12 +19,14 @@ export const TextH2 = styled(StyledText)(
   ({ theme }) => css`
     font-size: ${theme.fontSizes.xl};
     font-weight: bold;
+    line-height: 64px;
   `,
 )
 
 export const TextH4 = styled(StyledText)(
   ({ theme }) => css`
     font-size: ${theme.fontSizes.lg};
+    line-height: 48px;
     font-weight: bold;
   `,
 )
@@ -38,3 +40,9 @@ export const TextBody = styled(StyledText)(
 export const TextBodySemiBold = styled(TextBody)`
   font-weight: 600;
 `
+
+export const TextSmallBody = styled(StyledText)(
+  ({ theme }) => css`
+    font-size: ${theme.fontSizes.sm};
+  `,
+)
