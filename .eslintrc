@@ -39,23 +39,6 @@
     ],
     "prefer-destructuring": ["error", { "array": true, "object": true }]
   },
-  "overrides": [
-    {
-      "files": ["*.ts", "*.tsx"],
-      "excludedFiles": ["styles.*", "use*.ts"],
-      "parser": "@typescript-eslint/parser",
-      "rules": {
-        "@typescript-eslint/explicit-function-return-type": [
-          "error", 
-          {
-            "allowExpressions": true,
-            "allowTypedFunctionExpressions": true,
-            "allowHigherOrderFunctions": true
-          }
-        ]
-      }
-    }
-  ],
   "settings": {
     "import/resolver": {
       "typescript": {}
