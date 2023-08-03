@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native'
 import { Button } from 'native-base'
 
 import { StyledSafeAreaView } from 'src/styles'
-import { AdvertBanner } from 'src/components/AdvertBanner'
+import { Advert } from 'src/components/Advert'
 import { Screens } from 'src/enums'
 import { NavigationType } from 'src/types'
 
@@ -18,7 +18,7 @@ const HomeScreen = (): JSX.Element => {
       >
         Надіслати
       </Button>
-      <AdvertBanner></AdvertBanner>
+      <Advert children="" />
     </StyledSafeAreaView>
   )
 }
