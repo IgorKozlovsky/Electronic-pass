@@ -1,6 +1,6 @@
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import { ReactNode } from 'react'
-
+import { ReactNode, ComponentProps } from 'react'
+import { SimpleLineIcons } from '@expo/vector-icons'
 import { Screens } from 'src/enums'
 
 export type NativeChildrenProps = {
@@ -17,3 +17,5 @@ export type RootStackParams = {
 }
 
 export type NavigationType = Awaited<NativeStackNavigationProp<RootStackParams>>
+
+export type SimpleLineIconName = ComponentProps<typeof SimpleLineIcons>['name']

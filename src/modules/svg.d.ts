@@ -1,7 +1,7 @@
 declare module '*.svg' {
-  import { SVGProps } from 'react-native-svg'
+  import { SvgProps } from 'react-native-svg'
 
-  type SvgComponent = (props: SVGProps) => JSX.Element
+  type SvgComponent = (props: SvgProps) => JSX.Element
 
   const content: SvgComponent
 

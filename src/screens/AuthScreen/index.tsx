@@ -1,16 +1,14 @@
 import { Button, Checkbox, Flex } from 'native-base'
-import { useNavigation } from '@react-navigation/native'
-
+import { useNavigate } from 'src/hooks/useNavigate'
 import { StyledSafeAreaView } from 'src/styles'
 import { InputFlex, TextFlex } from 'src/screens/AuthScreen/styles'
 import { TextBody, TextH4 } from 'src/components/Text'
 import { StyledInput } from 'src/components/Input'
 import { InputTypes, Screens } from 'src/enums'
 import theme from 'src/theme'
-import { NavigationType } from 'src/types'
 
 const AuthScreen = (): JSX.Element => {
-  const navigation = useNavigation<NavigationType>()
+  const { toScreen } = useNavigate()
 
   return (
     <StyledSafeAreaView
@@ -48,7 +46,7 @@ const AuthScreen = (): JSX.Element => {
         mb={theme.spaces.lg}
         spinnerPlacement="end"
         isLoadingText="Надсилається"
-        onPress={() => navigation.navigate(Screens.HOME)}
+        onPress={() => toScreen(Screens.HOME)}
       >
         Надіслати
       </Button>
