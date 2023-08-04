@@ -7,7 +7,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "tsc": "tsc",
+    "custom-tsc": "tsc",
     "lint": "eslint ./src",
     "lint:format": "prettier --write --loglevel warn \"./**/*.{js,jsx,ts,tsx,css,md,json}\"",
     "lint:fix": "eslint --cache ./src --ext .jsx,.js,.ts,.tsx --fix --ignore-path ./.gitignore",
