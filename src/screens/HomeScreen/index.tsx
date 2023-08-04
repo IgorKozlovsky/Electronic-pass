@@ -1,34 +1,26 @@
-import { useNavigation } from '@react-navigation/native'
-import { Button, View } from 'native-base'
-import { StyledSafeAreaView } from 'src/styles'
 import { Ionicons } from '@expo/vector-icons'
+import { StyledSafeAreaView } from 'src/styles'
+import { StyledHeader } from 'src/screens/HomeScreen/styles'
 import { Advert } from 'src/components/Advert'
 import { IconButton } from 'src/components/IconButton'
+import SocialLinks from 'src/features/SocialLinks'
+import { useNavigate } from 'src/hooks/useNavigate'
 import { Screens } from 'src/enums'
-import { NavigationType } from 'src/types'
-import SocialLinks from 'src/features/SocialLinkGroup'
 
 const HomeScreen = (): JSX.Element => {
-  const navigation = useNavigation<NavigationType>()
+  const { toScreen } = useNavigate()
 
   return (
     <StyledSafeAreaView>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          marginTop: 20,
-          marginBottom: 20,
-        }}
-      >
+      <StyledHeader>
         <IconButton
-          icon={<Ionicons name="arrow-back" size={24} />}
+          icon={<Ionicons name="arrow-back" size={26} />}
           onPress={() => {
-            navigation.goBack()
+            toScreen(Screens.AUTH)
           }}
         />
         <SocialLinks />
-      </View>
+      </StyledHeader>
       <Advert children="" />
     </StyledSafeAreaView>
   )

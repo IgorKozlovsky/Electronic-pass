@@ -1,19 +1,16 @@
 import { SimpleLineIcons } from '@expo/vector-icons'
 import { SocialLink } from 'src/components/SocialLink'
-import TelegramIcon from 'src/components/SocialLink/TelegramCustomIcon'
-import { StyledLinksWrapper } from 'src/features/SocialLinkGroup/styles'
-import {
-  simpleIconsLinks,
-  telegramLink,
-} from 'src/features/SocialLinkGroup/constants'
+import TelegramIcon from 'src/components/TelegramCustomIcon'
+import { StyledLinksWrapper } from 'src/features/SocialLinks/styles'
+import { socialLinks, TELEGRAM_LINK } from 'src/features/SocialLinks/constants'
 
-const SocialLinkGroup = () => (
+const SocialLinks = () => (
   <StyledLinksWrapper>
     <SocialLink
-      url={telegramLink}
+      url={TELEGRAM_LINK}
       icon={<TelegramIcon color="white" width={24} height={24} />}
     />
-    {simpleIconsLinks.map(({ url, name }) => (
+    {socialLinks.map(({ url, name }) => (
       <SocialLink
         key={url}
         url={url}
@@ -23,4 +20,4 @@ const SocialLinkGroup = () => (
   </StyledLinksWrapper>
 )
 
-export default SocialLinkGroup
+export default SocialLinks

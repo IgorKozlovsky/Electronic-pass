@@ -1,6 +1,6 @@
-import { TouchableOpacity } from 'react-native'
+import { StyledIconButton } from 'src/components/IconButton/styles'
 import { IconButtonProps } from 'src/components/IconButton/types'
 
 export const IconButton = ({ icon, onPress }: IconButtonProps) => (
-  <TouchableOpacity onPress={onPress}>{icon}</TouchableOpacity>
+  <StyledIconButton onPress={onPress}>{icon}</StyledIconButton>
 )

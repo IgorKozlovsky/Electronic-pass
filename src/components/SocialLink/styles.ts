@@ -1,7 +1,7 @@
-import { TouchableOpacity } from 'react-native'
+import { Link } from 'native-base'
 import { css, styled } from 'styled-components'
 
-export const StyledSocialLink = styled(TouchableOpacity)(
+export const StyledSocialLink = styled(Link)(
   ({ theme }) => css`
     background-color: ${theme.colors.highlight};
     border-radius: 50px;

@@ -7,6 +7,6 @@ export const StyledLinksWrapper = styled(View)(
     flex: 1;
     flex-direction: row;
     justify-content: center;
-    margin-right: ${theme.spaces.xl};
+    margin-right: ${theme.spaces.xxl};
   `,
 )
