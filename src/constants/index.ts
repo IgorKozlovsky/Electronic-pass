@@ -7,4 +7,7 @@ export const SCREEN_OPTIONS: NativeStackNavigationOptions = {
   animationDuration: 400,
   navigationBarColor: 'transparent',
   navigationBarHidden: true,
+  contentStyle: {
+    backgroundColor: '#FFFFFF',
+  },
 }
