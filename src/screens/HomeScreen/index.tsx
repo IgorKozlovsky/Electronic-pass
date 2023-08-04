@@ -4,6 +4,7 @@ import { StyledHeader } from 'src/screens/HomeScreen/styles'
 import { Advert } from 'src/components/Advert'
 import { IconButton } from 'src/components/IconButton'
 import SocialLinks from 'src/features/SocialLinks'
+import UserCard from 'src/features/UserCard'
 import { useNavigate } from 'src/hooks/useNavigate'
 import { Screens } from 'src/enums'
 
@@ -22,6 +23,11 @@ const HomeScreen = (): JSX.Element => {
         <SocialLinks />
       </StyledHeader>
       <Advert children="" />
+      <UserCard
+        fullname="Середа Максим Вікторович"
+        room={203}
+        faculty="Факультет кібербезпеки та інформаційних технологій"
+      />
     </StyledSafeAreaView>
   )
 }

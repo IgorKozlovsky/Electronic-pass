@@ -38,11 +38,17 @@ export const TextBody = styled(StyledText)(
 )
 
 export const TextBodySemiBold = styled(TextBody)`
-  font-weight: 600;
+  font-weight: 800;
 `
 
 export const TextSmallBody = styled(StyledText)(
   ({ theme }) => css`
     font-size: ${theme.fontSizes.sm};
+  `,
+)
+
+export const TextSmallestBody = styled(StyledText)(
+  ({ theme }) => css`
+    font-size: ${theme.fontSizes.xs};
   `,
 )
