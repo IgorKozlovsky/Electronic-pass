@@ -5,5 +5,6 @@ export const StyledIconButton = styled(Button)(
   ({ theme }) => css`
     background-color: transparent;
     padding: ${theme.spaces.sm};
+    padding-left: 0;
   `,
 )
