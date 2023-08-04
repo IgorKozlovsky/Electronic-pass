@@ -1,23 +1,34 @@
 import { useNavigation } from '@react-navigation/native'
-import { Button } from 'native-base'
-
+import { Button, View } from 'native-base'
 import { StyledSafeAreaView } from 'src/styles'
+import { Ionicons } from '@expo/vector-icons'
 import { Advert } from 'src/components/Advert'
+import { IconButton } from 'src/components/IconButton'
 import { Screens } from 'src/enums'
 import { NavigationType } from 'src/types'
+import SocialLinks from 'src/features/SocialLinkGroup'
 
 const HomeScreen = (): JSX.Element => {
   const navigation = useNavigation<NavigationType>()
 
   return (
     <StyledSafeAreaView>
-      <Button
-        spinnerPlacement="end"
-        isLoadingText="Надсилається"
-        onPress={() => navigation.navigate(Screens.AUTH)}
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          marginTop: 20,
+          marginBottom: 20,
+        }}
       >
-        Надіслати
-      </Button>
+        <IconButton
+          icon={<Ionicons name="arrow-back" size={24} />}
+          onPress={() => {
+            navigation.goBack()
+          }}
+        />
+        <SocialLinks />
+      </View>
       <Advert children="" />
     </StyledSafeAreaView>
   )
