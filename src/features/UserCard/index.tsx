@@ -20,7 +20,7 @@ const UserCard = ({ faculty, room, fullname }: UserCardProps): JSX.Element => {
         <TextBodySemiBold>Перепустка в гуртожиток</TextBodySemiBold>
         <StyledProfileInner>
           <Image
-            style={{ flexShrink: 1, flexBasis: '100%' }}
+            style={{ flexShrink: 1, flexBasis: '90%' }}
             alt="qr"
             source={require('src/features/UserCard/profile.png')}
           />
