@@ -3,12 +3,12 @@ import { styled, css } from 'styled-components'
 
 export const StyledFrontCard = styled(View)(
   ({ theme }) => css`
-    aspect-ratio: 1;
+    aspect-ratio: 0.9;
     width: 100%;
     justify-content: space-between;
     background-color: white;
     elevation: 12;
-    padding: ${theme.spaces.xl};
+    padding: ${theme.spaces.lg} ${theme.spaces.xl};
   `,
 )
 
