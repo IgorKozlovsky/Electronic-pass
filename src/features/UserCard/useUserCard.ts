@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Animated } from 'react-native'
+import { DEFAULT_ANIMATION_VALUE } from 'src/features/UserCard/constants'
+import { AnimationType } from 'src/enums'
 import { RotateT } from 'src/features/UserCard/types'
 
 export const useUserCard = () => {
@@ -17,20 +19,20 @@ export const useUserCard = () => {
     }).start()
   }
 
-  const rotate = (isBackwards: boolean): RotateT => [
+  const rotateAnimation = (animationType: AnimationType): RotateT[] => [
     {
       rotateY: flipValue.interpolate({
         inputRange: [0, 1],
-        outputRange: [
-          isBackwards ? '180deg' : '0deg',
-          isBackwards ? '0deg' : '180deg',
-        ],
+        outputRange:
+          animationType === AnimationType.BACKWARDS
+            ? [...DEFAULT_ANIMATION_VALUE].reverse()
+            : DEFAULT_ANIMATION_VALUE,
       }),
     },
   ]
 
   return {
     toggleFlip,
-    rotate,
+    rotateAnimation,
   }
 }

@@ -8,6 +8,7 @@ import {
   StyledProfileInner,
   StyledAnimationContainer,
 } from 'src/features/UserCard/styles'
+import { AnimationType } from 'src/enums'
 import { UserCardProps } from 'src/features/UserCard/types'
 
 const UserCard = ({
@@ -17,7 +18,7 @@ const UserCard = ({
   photo,
   qrCode,
 }: UserCardProps): JSX.Element => {
-  const { toggleFlip, rotate } = useUserCard()
+  const { toggleFlip, rotateAnimation } = useUserCard()
 
   return (
     <View style={{ width: 350, height: 500 }}>
@@ -28,7 +29,7 @@ const UserCard = ({
       >
         <StyledAnimationContainer
           style={{
-            transform: rotate(false),
+            transform: rotateAnimation(AnimationType.FORWARDS),
           }}
         >
           <StyledFrontCard>
@@ -57,7 +58,7 @@ const UserCard = ({
         </StyledAnimationContainer>
         <StyledAnimationContainer
           style={{
-            transform: rotate(true),
+            transform: rotateAnimation(AnimationType.BACKWARDS),
           }}
         >
           <StyledBackCard>

@@ -10,4 +10,4 @@ export type UserCardProps = {
 
 export type RotateT = {
   rotateY: Animated.AnimatedInterpolation<string | number>
-}[]
+}
