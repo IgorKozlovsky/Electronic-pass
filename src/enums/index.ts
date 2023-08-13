@@ -13,3 +13,8 @@ export enum SocialLinkNames {
   FACEBOOK = 'social-facebook',
   INSTAGRAM = 'social-instagram',
 }
+
+export enum AnimationType {
+  BACKWARDS = 'backwards',
+  FORWARDS = 'forwards',
+}

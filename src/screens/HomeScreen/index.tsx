@@ -25,8 +25,10 @@ const HomeScreen = (): JSX.Element => {
       <Advert children="" />
       <UserCard
         fullname="Середа Максим Вікторович"
+        photo={require('src/assets/profile.png')}
         room={203}
         faculty="Факультет кібербезпеки та інформаційних технологій"
+        qrCode={require('src/assets/qr.jpg')}
       />
     </StyledSafeAreaView>
   )
