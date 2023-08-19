@@ -26,7 +26,7 @@ export const StyledInput = ({
   return (
     <FormControl
       style={{
-        gap: 16,
+        gap: 8,
       }}
     >
       <TextSmallBody fontWeight="bold">{label}</TextSmallBody>

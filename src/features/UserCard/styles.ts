@@ -1,10 +1,10 @@
-import { View } from 'native-base'
+import { View, Image } from 'native-base'
 import { Animated } from 'react-native'
 import { styled, css } from 'styled-components'
 
 export const StyledFrontCard = styled(View)(
   ({ theme }) => css`
-    aspect-ratio: 0.85;
+    aspect-ratio: 1;
     width: 100%;
     justify-content: space-between;
     background-color: white;
@@ -37,4 +37,9 @@ export const StyledAnimationContainer = styled(Animated.View)`
   height: 100%;
   width: 100%;
   position: absolute;
+`
+
+export const StyledImage = styled(Image)`
+  flex-shrink: 0.5;
+  object-fit: contain;
 `
