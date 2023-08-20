@@ -1,12 +1,13 @@
 import { Image, View } from 'native-base'
 import { TouchableOpacity } from 'react-native'
-import { TextBodySemiBold, TextSmallestBody } from 'src/components/Text'
+import { TextBodySemiBold, TextH4, TextSmallBody } from 'src/components/Text'
 import { useUserCard } from 'src/features/UserCard/useUserCard'
 import {
   StyledFrontCard,
   StyledBackCard,
   StyledProfileInner,
   StyledAnimationContainer,
+  StyledImage,
 } from 'src/features/UserCard/styles'
 import { AnimationType } from 'src/enums'
 import { UserCardProps } from 'src/features/UserCard/types'
@@ -21,7 +22,7 @@ const UserCard = ({
   const { toggleFlip, rotateAnimation } = useUserCard()
 
   return (
-    <View style={{ width: 350, height: 500 }}>
+    <View>
       <TouchableOpacity
         style={{ height: '100%', width: '100%', position: 'relative' }}
         onPress={toggleFlip}
@@ -33,23 +34,19 @@ const UserCard = ({
           }}
         >
           <StyledFrontCard>
-            <TextBodySemiBold>Перепустка в гуртожиток</TextBodySemiBold>
+            <TextH4>Перепустка в гуртожиток</TextH4>
             <StyledProfileInner>
-              <Image
-                style={{ flexShrink: 1, flexBasis: '90%' }}
-                alt="profile image"
-                source={photo}
-              />
+              <StyledImage alt="profile image" source={photo} />
               <View
                 style={{
                   justifyContent: 'space-evenly',
                   flexShrink: 1,
                 }}
               >
-                <TextSmallestBody>{faculty}</TextSmallestBody>
+                <TextSmallBody>{faculty}</TextSmallBody>
                 <View>
-                  <TextSmallestBody>Кімната:</TextSmallestBody>
-                  <TextSmallestBody>{room}</TextSmallestBody>
+                  <TextSmallBody>Кімната:</TextSmallBody>
+                  <TextSmallBody>{room}</TextSmallBody>
                 </View>
               </View>
             </StyledProfileInner>

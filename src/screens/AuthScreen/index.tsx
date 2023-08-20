@@ -1,8 +1,12 @@
-import { Button, Checkbox, Flex } from 'native-base'
+import { Button, Checkbox } from 'native-base'
 import { useNavigate } from 'src/hooks/useNavigate'
 import { StyledSafeAreaView } from 'src/styles'
-import { InputFlex, TextFlex } from 'src/screens/AuthScreen/styles'
-import { TextBody, TextH4 } from 'src/components/Text'
+import {
+  StyledAuthScreen,
+  InputFlex,
+  TextFlex,
+} from 'src/screens/AuthScreen/styles'
+import { TextBody, TextH4, TextSmallBody } from 'src/components/Text'
 import { StyledInput } from 'src/components/Input'
 import { InputTypes, Screens } from 'src/enums'
 import theme from 'src/theme'
@@ -16,11 +20,7 @@ const AuthScreen = (): JSX.Element => {
         justifyContent: 'space-between',
       }}
     >
-      <Flex
-        style={{
-          gap: 36,
-        }}
-      >
+      <StyledAuthScreen>
         <TextFlex>
           <TextH4>Увійти 🔐</TextH4>
           <TextBody>
@@ -39,9 +39,11 @@ const AuthScreen = (): JSX.Element => {
             label="Пароль"
             type={InputTypes.PASSWORD}
           />
-          <Checkbox value="remember">Запам'ятай мене</Checkbox>
+          <Checkbox size="sm" value="remember">
+            <TextSmallBody> Запам'ятай мене</TextSmallBody>
+          </Checkbox>
         </InputFlex>
-      </Flex>
+      </StyledAuthScreen>
       <Button
         mb={theme.spaces.lg}
         spinnerPlacement="end"

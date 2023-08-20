@@ -1,12 +1,13 @@
 import { FontSizes } from 'src/theme/types'
+import { RFValue } from 'react-native-responsive-fontsize'
 
 const fontSizes: FontSizes = {
-  xs: '14px',
-  sm: '16px',
-  md: '18px',
-  lg: '24px',
-  xl: '32px',
-  xxl: '36px',
+  xs: `${RFValue(12)}px`,
+  sm: `${RFValue(14)}px`,
+  md: `${RFValue(16)}px`,
+  lg: `${RFValue(22)}px`,
+  xl: `${RFValue(30)}px`,
+  xxl: `${RFValue(32)}px`,
 }
 
 export default fontSizes

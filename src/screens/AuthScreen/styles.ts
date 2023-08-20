@@ -14,3 +14,10 @@ export const InputFlex = styled(Flex)(
     gap: ${theme.spaces.lg};
   `,
 )
+
+export const StyledAuthScreen = styled(Flex)(
+  ({ theme }) => css`
+    gap: ${theme.spaces.xxl};
+    margin-top: ${theme.spaces.xxl};
+  `,
+)
