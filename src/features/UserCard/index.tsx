@@ -1,7 +1,7 @@
 import { Image, View } from 'native-base'
-import { TouchableOpacity } from 'react-native'
+import { TouchableOpacity, ActivityIndicator } from 'react-native'
 import { TextBodySemiBold, TextH4, TextSmallBody } from 'src/components/Text'
-import { useUserCard } from 'src/features/UserCard/useUserCard'
+import { useUserCard } from 'src/features/UserCard/hooks/useUserCard'
 import {
   StyledFrontCard,
   StyledBackCard,
@@ -9,6 +9,7 @@ import {
   StyledAnimationContainer,
   StyledImage,
 } from 'src/features/UserCard/styles'
+import { BASE64_PREFIX } from 'src/constants'
 import { AnimationType } from 'src/enums'
 import { UserCardProps } from 'src/features/UserCard/types'
 
@@ -17,9 +18,9 @@ const UserCard = ({
   room,
   fullname,
   photo,
-  qrCode,
+  id,
 }: UserCardProps): JSX.Element => {
-  const { toggleFlip, rotateAnimation } = useUserCard()
+  const { toggleFlip, rotateAnimation, qrCode, loading } = useUserCard(id)
 
   return (
     <View>
@@ -36,7 +37,11 @@ const UserCard = ({
           <StyledFrontCard>
             <TextH4>Перепустка в гуртожиток</TextH4>
             <StyledProfileInner>
-              <StyledImage alt="profile image" source={photo} />
+              <StyledImage
+                style={{ width: '50%', height: '100%' }}
+                alt="profile image"
+                source={{ uri: `${BASE64_PREFIX}${photo}` }}
+              />
               <View
                 style={{
                   justifyContent: 'space-evenly',
@@ -59,11 +64,21 @@ const UserCard = ({
           }}
         >
           <StyledBackCard>
-            <Image
-              alt="qr"
-              style={{ width: '100%', height: '100%' }}
-              source={qrCode}
-            />
+            {loading ? (
+              <ActivityIndicator
+                size="large"
+                style={{
+                  top: '50%',
+                  transform: [{ translateY: -20 }],
+                }}
+              />
+            ) : (
+              <Image
+                alt="qr"
+                style={{ width: '100%', height: '100%' }}
+                source={qrCode ? { uri: qrCode } : undefined}
+              />
+            )}
           </StyledBackCard>
         </StyledAnimationContainer>
       </TouchableOpacity>

@@ -1,11 +1,11 @@
-import { Animated, ImageSourcePropType } from 'react-native'
+import { Animated } from 'react-native'
 
 export type UserCardProps = {
   faculty: string
-  room: number
+  room: string
   fullname: string
-  photo: ImageSourcePropType
-  qrCode: ImageSourcePropType
+  photo: string
+  id: number
 }
 
 export type RotateT = {

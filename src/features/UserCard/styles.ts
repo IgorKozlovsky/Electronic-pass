@@ -15,6 +15,7 @@ export const StyledFrontCard = styled(View)(
 )
 
 export const StyledProfileInner = styled(View)`
+  height: 60%;
   flex-direction: row;
   justify-content: space-between;
   gap: 10px;

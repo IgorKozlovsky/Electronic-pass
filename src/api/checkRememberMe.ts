@@ -1,0 +1,27 @@
+import { isExpired, decodeToken } from 'react-jwt'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import axios from 'axios'
+import { BASE_URL } from 'src/constants'
+
+export const checkRememberMe = async () => {
+  const token = await AsyncStorage.getItem('authToken')
+
+  if (!token) return false
+
+  const myDecodedToken = decodeToken(token)
+  const isMyTokenExpired = isExpired(token)
+
+  if (isMyTokenExpired) {
+    return false
+  }
+
+  try {
+    const response = await axios.post(`${BASE_URL}/student/${myDecodedToken}`)
+
+    if (response.status === 200) {
+      return response.data
+    }
+  } catch (error) {
+    console.error('Помилка при перевірці токена', error)
+  }
+}

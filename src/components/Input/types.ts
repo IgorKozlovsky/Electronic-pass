@@ -4,6 +4,8 @@ export type StyledInputProps = {
   label?: string
   placeholder?: string
   type?: InputTypes
+  value?: string
+  onChange?: (value: string) => void
 }
 
 export type InputRendererProps = {
