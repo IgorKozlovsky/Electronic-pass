@@ -12,12 +12,11 @@ import { useAuth } from 'src/contexts/AuthProvider'
 
 const HomeScreen = (): JSX.Element => {
   const { userData, setUserData } = useAuth()
+  const { toScreen } = useNavigate()
 
   if (!userData) {
     return <Text>Загрузка...</Text>
   }
-
-  const { toScreen } = useNavigate()
 
   const handleLogout = async () => {
     try {

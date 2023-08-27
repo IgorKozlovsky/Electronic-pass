@@ -18,3 +18,8 @@ export enum AnimationType {
   BACKWARDS = 'backwards',
   FORWARDS = 'forwards',
 }
+
+export enum Endpoints {
+  LOGIN = '/login',
+  GET_QR = '/generate_qr',
+}

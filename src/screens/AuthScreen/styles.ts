@@ -1,4 +1,4 @@
-import { Flex } from 'native-base'
+import { Flex, FormControl } from 'native-base'
 import { css, styled } from 'styled-components'
 
 export const TextFlex = styled(Flex)(
@@ -8,7 +8,7 @@ export const TextFlex = styled(Flex)(
   `,
 )
 
-export const InputFlex = styled(Flex)(
+export const InputFlex = styled(FormControl)(
   ({ theme }) => css`
     flex-direction: column;
     gap: ${theme.spaces.lg};

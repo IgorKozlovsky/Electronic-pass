@@ -16,7 +16,9 @@ export const checkRememberMe = async () => {
   }
 
   try {
-    const response = await axios.post(`${BASE_URL}/student/${myDecodedToken}`)
+    const response = await axios.get(
+      `${BASE_URL}/student/${myDecodedToken.student_id}`,
+    )
 
     if (response.status === 200) {
       return response.data

@@ -40,7 +40,7 @@ const UserCard = ({
               <StyledImage
                 style={{ width: '50%', height: '100%' }}
                 alt="profile image"
-                source={{ uri: `${BASE64_PREFIX}${photo}` }}
+                source={{ uri: BASE64_PREFIX + photo }}
               />
               <View
                 style={{

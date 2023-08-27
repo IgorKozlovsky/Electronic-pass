@@ -14,4 +14,4 @@ export const SCREEN_OPTIONS: NativeStackNavigationOptions = {
 
 export const BASE64_PREFIX = 'data:image/png;base64,'
 
-export const BASE_URL = 'http://127.0.0.1:5000'
+export const BASE_URL = 'http://195.138.83.222:5000'

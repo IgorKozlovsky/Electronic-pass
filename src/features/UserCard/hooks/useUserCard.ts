@@ -1,15 +1,18 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Animated } from 'react-native'
 import { useQrCode } from 'src/features/UserCard/hooks/useQrCode'
 import { DEFAULT_ANIMATION_VALUE } from 'src/features/UserCard/constants'
 import { AnimationType } from 'src/enums'
 import { RotateT } from 'src/features/UserCard/types'
+import { debounce } from 'lodash'
 
 export const useUserCard = (id: number) => {
   const [flipped, setFlipped] = useState<boolean>(false)
   const [flipValue] = useState<Animated.Value>(new Animated.Value(0))
 
-  const { qrCode, fetchQrCode, loading } = useQrCode()
+  const timer = useRef<NodeJS.Timeout | null>(null)
+
+  const { qrCode, fetchQrCode, loading, setQrCode } = useQrCode()
 
   const runAnimation = (toValue: number, callback?: () => void) => {
     Animated.spring(flipValue, {
@@ -22,7 +25,7 @@ export const useUserCard = (id: number) => {
 
   let abortController = new AbortController()
 
-  const toggleFlip = (): void => {
+  const toggleFlip = debounce((): void => {
     if (!flipped) {
       setFlipped(true)
 
@@ -35,18 +38,21 @@ export const useUserCard = (id: number) => {
           return
         }
 
-        setTimeout(() => {
+        timer.current = setTimeout(() => {
           setFlipped(false)
           runAnimation(0)
-        }, 15000)
+        }, 20000)
       })
     } else {
       abortController.abort()
-
+      if (timer.current) {
+        clearTimeout(timer.current)
+      }
+      setQrCode(null)
       setFlipped(false)
       runAnimation(0)
     }
-  }
+  }, 500)
 
   const rotateAnimation = (animationType: AnimationType): RotateT[] => [
     {

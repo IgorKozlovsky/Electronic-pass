@@ -7,7 +7,8 @@ import { checkRememberMe } from 'src/api/checkRememberMe'
 import { useNavigate } from 'src/hooks/useNavigate'
 import { defaultFormValue } from 'src/screens/AuthScreen/constants'
 import { FormValueT } from 'src/screens/AuthScreen/types'
-import { Screens } from 'src/enums'
+import { Endpoints, Screens } from 'src/enums'
+import { BASE_URL } from 'src/constants'
 
 export const useAuthScreen = () => {
   const [formValue, setFormValue] = useState<FormValueT>(defaultFormValue)
@@ -17,10 +18,7 @@ export const useAuthScreen = () => {
 
   const handleLogin = async (): Promise<void> => {
     try {
-      const response = await axios.post(
-        'http://127.0.0.1:5000/login',
-        formValue,
-      )
+      const response = await axios.post(BASE_URL + Endpoints.LOGIN, formValue)
 
       if (response.status === 200) {
         const studentInfo = response.data
