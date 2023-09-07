@@ -1,6 +1,7 @@
-import { SimpleLineIconName } from 'src/types'
+import { IconComponents, IconNames } from 'src/types'
 
 export type SocialLinks = {
-  name: SimpleLineIconName
+  name: IconNames
   url: string
+  IconPack: IconComponents
 }

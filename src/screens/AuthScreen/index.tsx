@@ -1,5 +1,5 @@
 import { Button, Checkbox } from 'native-base'
-import { useNavigate } from 'src/hooks/useNavigate'
+
 import { StyledSafeAreaView } from 'src/styles'
 import {
   StyledAuthScreen,
@@ -8,11 +8,12 @@ import {
 } from 'src/screens/AuthScreen/styles'
 import { TextBody, TextH4, TextSmallBody } from 'src/components/Text'
 import { StyledInput } from 'src/components/Input'
-import { InputTypes, Screens } from 'src/enums'
+import { InputTypes } from 'src/enums'
 import theme from 'src/theme'
+import { useAuthScreen } from 'src/screens/AuthScreen/useAuthScreen'
 
 const AuthScreen = (): JSX.Element => {
-  const { toScreen } = useNavigate()
+  const { handleLogin, formValue, setFormValue } = useAuthScreen()
 
   return (
     <StyledSafeAreaView
@@ -33,13 +34,26 @@ const AuthScreen = (): JSX.Element => {
             placeholder="Логін"
             label="Логін"
             type={InputTypes.TEXT}
+            value={formValue.login}
+            onChange={text => setFormValue({ ...formValue, login: text })}
           />
           <StyledInput
             placeholder="Пароль"
             label="Пароль"
             type={InputTypes.PASSWORD}
+            value={formValue.password}
+            onChange={text => setFormValue({ ...formValue, password: text })}
           />
-          <Checkbox size="sm" value="remember">
+          <Checkbox
+            size="sm"
+            onChange={() =>
+              setFormValue(prev => ({
+                ...prev,
+                remember: !prev.remember,
+              }))
+            }
+            value="remember"
+          >
             <TextSmallBody> Запам'ятай мене</TextSmallBody>
           </Checkbox>
         </InputFlex>
@@ -48,7 +62,7 @@ const AuthScreen = (): JSX.Element => {
         mb={theme.spaces.lg}
         spinnerPlacement="end"
         isLoadingText="Надсилається"
-        onPress={() => toScreen(Screens.HOME)}
+        onPress={handleLogin}
       >
         Надіслати
       </Button>

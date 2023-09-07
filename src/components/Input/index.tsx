@@ -11,6 +11,8 @@ export const StyledInput = ({
   placeholder = '',
   label,
   type = InputTypes.TEXT,
+  value = '',
+  onChange = (newValue: string) => {},
 }: StyledInputProps): JSX.Element => {
   const { show, toggleShow } = usePassword()
 
@@ -19,6 +21,8 @@ export const StyledInput = ({
     isRequired: true,
     placeholder,
     focusOutlineColor: theme.colors.highlight,
+    value,
+    onChangeText: onChange,
   }
 
   const renderInput = InputRenderers[type]
