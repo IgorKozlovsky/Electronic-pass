@@ -2,13 +2,14 @@ import { isExpired, decodeToken } from 'react-jwt'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import axios from 'axios'
 import { BASE_URL } from 'src/constants'
+import { DecodeToken } from 'src/api/types'
 
 export const checkRememberMe = async () => {
   const token = await AsyncStorage.getItem('authToken')
 
   if (!token) return false
 
-  const myDecodedToken = decodeToken(token)
+  const myDecodedToken = decodeToken(token) as DecodeToken
   const isMyTokenExpired = isExpired(token)
 
   if (isMyTokenExpired) {

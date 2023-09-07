@@ -9,9 +9,11 @@ export enum InputTypes {
 }
 
 export enum SocialLinkNames {
-  YOUTUBE = 'social-youtube',
-  FACEBOOK = 'social-facebook',
-  INSTAGRAM = 'social-instagram',
+  TIKTOK = 'tiktok',
+  FACEBOOK = 'facebook-f',
+  INSTAGRAM = 'instagram',
+  TELEGRAM = 'telegram-plane',
+  SHOP = 'shopping-basket',
 }
 
 export enum AnimationType {

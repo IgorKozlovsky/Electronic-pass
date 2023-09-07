@@ -1,4 +1,3 @@
-import { Text } from 'native-base'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { StyledSafeAreaView } from 'src/styles'
 import { StyledHeader } from 'src/screens/HomeScreen/styles'
@@ -9,13 +8,15 @@ import UserCard from 'src/features/UserCard'
 import { useNavigate } from 'src/hooks/useNavigate'
 import { Screens } from 'src/enums'
 import { useAuth } from 'src/contexts/AuthProvider'
+import { StyledText, TextBody } from 'src/components/Text'
+import theme from 'src/theme'
 
 const HomeScreen = (): JSX.Element => {
   const { userData, setUserData } = useAuth()
   const { toScreen } = useNavigate()
 
   if (!userData) {
-    return <Text>Загрузка...</Text>
+    return <StyledText>Загрузка...</StyledText>
   }
 
   const handleLogout = async () => {
@@ -32,11 +33,20 @@ const HomeScreen = (): JSX.Element => {
   return (
     <StyledSafeAreaView>
       <StyledHeader>
-        <IconButton
-          icon={<Text color="#1C83BD">Вийти</Text>}
-          onPress={handleLogout}
-        />
-        <SocialLinks />
+        <SocialLinks>
+          <IconButton
+            icon={
+              <TextBody
+                style={{
+                  color: theme.colors.highlight,
+                }}
+              >
+                Вийти
+              </TextBody>
+            }
+            onPress={handleLogout}
+          />
+        </SocialLinks>
       </StyledHeader>
       <Advert children="" />
       <UserCard
